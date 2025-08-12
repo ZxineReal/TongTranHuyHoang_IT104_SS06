@@ -1,6 +1,6 @@
 interface Geometry {
-  calculateArea(): void;
-  calculatePerimeter(): void;
+  calculateArea(): number;
+  calculatePerimeter(): number;
 }
 
 class Circle implements Geometry {
@@ -10,14 +10,12 @@ class Circle implements Geometry {
     this.radius = radius;
   }
 
-  calculateArea(): void {
-    console.log(
-      `Diện tích hình tròn: ${Math.PI * (this.radius * this.radius)}`
-    );
+  calculateArea(): number {
+    return Math.PI * (this.radius * this.radius);
   }
 
-  calculatePerimeter(): void {
-    console.log(`Chu vi hình tròn: ${2 * Math.PI * this.radius}`);
+  calculatePerimeter(): number {
+    return 2 * Math.PI * this.radius;
   }
 }
 
@@ -30,19 +28,19 @@ class Rectangle implements Geometry {
     this.height = height;
   }
 
-  calculateArea(): void {
-    console.log(`Diện tích hình chữ nhật: ${this.width * this.height}`);
+  calculateArea(): number {
+    return this.width * this.height;
   }
 
-  calculatePerimeter(): void {
-    console.log(`Chu vi hình chữ nhật: ${(this.width + this.height) * 2}`);
+  calculatePerimeter(): number {
+    return (this.width + this.height) * 2;
   }
 }
 
 const circle1 = new Circle(10);
-circle1.calculateArea();
-circle1.calculatePerimeter();
+console.log(` Diện tích hình tròn là: ${circle1.calculateArea()}`);
+console.log(` Chu vi hình tròn là: ${circle1.calculatePerimeter()}`);
 
 const rectangle1 = new Rectangle(10, 5);
-rectangle1.calculateArea();
-rectangle1.calculatePerimeter();
+console.log(` Diện tích hình chữ nhật là: ${rectangle1.calculateArea()}`);
+console.log(` Chu vi hình chữ nhật là: ${rectangle1.calculatePerimeter()}`);
